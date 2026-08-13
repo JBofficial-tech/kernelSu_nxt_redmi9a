@@ -1734,7 +1734,7 @@ static ssize_t disksize_store(struct device *dev,
 	(void)buf;
     (void)len;
 	
-	disksize = 2147483648ULL;
+	disksize = 1610612736ULL;
 	if (!disksize)
 		return -EINVAL;
 

@@ -67,6 +67,7 @@ jobs:
           export CLANG_TRIPLE="aarch64-linux-gnu-"
 
           make O=out ARCH=${ARCH} ${KERNEL_DEFCONFIG}
+          make O=out ARCH=${ARCH} olddefconfig
 
           echo "Building CKernel with KernelSU-Next..."
           make -j$(nproc) \

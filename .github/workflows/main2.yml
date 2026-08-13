@@ -3,7 +3,7 @@ name: Build CKernel with KernelSU-Next
 on:
   push:
     branches:
-      - V7
+      - V1
   workflow_dispatch:
 
 env:

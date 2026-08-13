@@ -54,7 +54,7 @@ jobs:
 
       - name: Integrate KernelSU-Next
         run: |
-          curl -LSs curl -LSs "https://raw.githubusercontent.com/rifs33/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+          curl -LSs "https://raw.githubusercontent.com/rifs33/KernelSU-Next/next/kernel/setup.sh" | bash -s next
 
           
       - name: Build kernel

@@ -67,10 +67,10 @@ jobs:
           export CLANG_TRIPLE="aarch64-linux-gnu-"
 
           make O=out ARCH=${KERNEL_ARCH} ${KERNEL_DEFCONFIG}
-          make O=out olddefconfig
+          make O=out ARCH=${ARCH} CC=clang CLANG_TRIPLE=${CLANG_TRIPLE} CROSS_COMPILE=${CROSS_COMPILE} CROSS_COMPILE_ARM32=${CROSS_COMPILE_ARM32} olddefconfig
 
           echo "Building CKernel with KernelSU-Next..."
-          make -j$(nproc) \
+          yes "" | make -j$(nproc) \
             O=out \
             ARCH=${ARCH} \
             CC=clang \

@@ -63,13 +63,12 @@ jobs:
         run: |
           cat >> fs/susfs.c << 'EOF'
 
-/* Stub implementations - this kernel's SUSFS core doesn't implement
-   these newer no_su spoofing helpers that ReSukiSU's driver expects. */
-bool susfs_is_current_proc_no_su(void) { return false; }
-void susfs_set_current_proc_no_su(void) { }
-void susfs_clear_current_proc_no_su(void) { }
-void susfs_set_current_proc_umounted_for_zygote_next(void) { }
-EOF
+- name: Add missing SUSFS no_su stubs
+        run: |
+          echo 'bool susfs_is_current_proc_no_su(void) { return false; }' >> fs/susfs.c
+          echo 'void susfs_set_current_proc_no_su(void) { }' >> fs/susfs.c
+          echo 'void susfs_clear_current_proc_no_su(void) { }' >> fs/susfs.c
+          echo 'void susfs_set_current_proc_umounted_for_zygote_next(void) { }' >> fs/susfs.c
       - name: Build kernel
         run: |
           export PATH="/tmp/clang/bin:/tmp/gcc-aarch64/bin:/tmp/gcc-arm/bin:${PATH}"
